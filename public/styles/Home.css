@@ -1,0 +1,124 @@
+/* ================ organizer or joiner section starts ================= */
+/* .feature-boxes {
+    height: 110px;
+    width: 225px;
+    border-radius: 20px;
+}
+
+@media (min-width: 576px) {
+    .features-row {
+        display: flex;
+        gap: 30px;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .features-row {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+} */
+
+/* ================ organizer or joiner section ends ================= */
+/* ================ key-features waale section starts================ */
+.key-benefits-images {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+/* ================ key-features waale section ends================ */
+/* ================ editing the header starts =========*/
+.logo {
+    height: 65px;
+    width: 300px;
+    object-fit: cover;
+}
+
+
+@media (max-width: 576px) {
+    header {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .header-container {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .header-buttons {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* ================ editing the header ends =========*/
+/* ============= testimonial section ================= */
+.testimonial-wrapper {
+    height: max-content;
+    padding: 10px;
+}
+
+#stars-image {
+    height: 15px;
+}
+
+#testimonial-para {
+    font-size: 16px;
+}
+
+#testimonial-image {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+}
+
+.last-animated-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+#testimonial-para {
+    text-align: left;
+}
+
+#testimonial-image-name {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+#testimonial-image-name>span {
+    color: #46474A;
+    font-weight: 500;
+}
+
+/* =============== footer section ================= */
+.footer-icon {
+    height: 24px;
+    width: 24px;
+}
+
+/* edinting key features section start*/
+.key-features-images {
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+}
+
+/* edinting key features section end*/

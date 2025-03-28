@@ -1,0 +1,224 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Room</title>
+    <script src="https://meet.jit.si/external_api.js"></script>
+</head>
+
+<body>
+
+    <h2>Meeting Room: <%= roomId %>
+    </h2>
+    <h2>
+        <%=topic%>
+    </h2>
+    <div id="jitsi-container" style="height: 600px; width: 100%;"></div>
+    <button onclick="window.location.href='/'">Leave Meeting</button>
+    <div id="controller">
+        <button id="start">Start</button>
+        <button id="stop" disabled>Stop</button>
+    </div>
+    <script>
+        console.log("hit hua hai");
+        const domain = "meet.jit.si";
+        const options = {
+            roomName: "<%= roomId %>",
+            width: "100%",
+            height: "100%",
+            parentNode: document.getElementById("jitsi-container"),
+            configOverwrite: { startWithAudioMuted: false, startWithVideoMuted: false },
+            userInfo: { displayName: "<%= username %>" },
+        };
+        const api = new JitsiMeetExternalAPI(domain, options);
+        let mediaRecorder;
+        let audioChunks = [];
+
+        // ✅ Backend se bheje gaye username & roomId ko frontend me use karna
+        const username = "<%= username %>"; // EJS se username lena
+        const roomId = "<%= roomId %>"; // EJS se roomId lena
+
+        document.getElementById("start").addEventListener("click", async () => {
+            const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = event => {
+                audioChunks.push(event.data);
+            };
+
+            mediaRecorder.onstop = async () => {
+                const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+
+                // ✅ Get filename from input box
+                let fileName = document.getElementById("filename").value.trim();
+                if (!fileName) {
+                    fileName = `recording_${username}_${roomId}_${Date.now()}.wav`; // Default name
+                } else {
+                    fileName += ".wav"; // Ensure .wav extension
+                }
+
+                const formData = new FormData();
+                formData.append("audio", audioBlob, fileName);
+                formData.append("username", username);
+                formData.append("roomId", roomId);
+
+                await fetch("http://localhost:3000/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                alert("Audio uploaded successfully!");
+            };
+
+            audioChunks = [];
+            mediaRecorder.start();
+
+            document.getElementById("start").disabled = true;
+            document.getElementById("stop").disabled = false;
+        });
+
+        document.getElementById("stop").addEventListener("click", () => {
+            mediaRecorder.stop();
+            document.getElementById("start").disabled = false;
+            document.getElementById("stop").disabled = true;
+        });
+    </script>
+    <script src="/scripts/Meeting.js"></script>
+
+</body>
+
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Room</title>
+    <script src="https://meet.jit.si/external_api.js"></script>
+</head>
+
+<body>
+
+    <h2>Meeting Room: <%= roomId %>
+    </h2>
+    <h2>
+        <%= topic %>
+    </h2>
+
+    <div id="jitsi-container" style="height: 600px; width: 100%;"></div>
+
+    <button onclick="window.location.href='/'">Leave Meeting</button>
+
+    <div id="controller">
+        <input type="text" id="filename" placeholder="Enter filename (optional)">
+        <button id="start">Start</button>
+        <button id="stop" disabled>Stop</button>
+    </div>
+
+    <script>
+        console.log("Script loaded");
+
+        const domain = "meet.jit.si";
+        const options = {
+            roomName: "<%= roomId %>",
+            width: "100%",
+            height: "100%",
+            parentNode: document.getElementById("jitsi-container"),
+            configOverwrite: { startWithAudioMuted: false, startWithVideoMuted: false },
+            userInfo: { displayName: "<%= username %>" },
+        };
+        const api = new JitsiMeetExternalAPI(domain, options);
+
+        let mediaRecorder;
+        let audioChunks = [];
+
+        // ✅ Get username & roomId from backend (EJS)
+        const username = "<%= username %>";
+        const roomId = "<%= roomId %>";
+
+        // ✅ Start Recording
+        document.getElementById("start").addEventListener("click", async () => {
+            try {
+                console.log("Start button clicked");
+
+                // 🛠 Request microphone access
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                console.log("Microphone access granted", stream);
+
+                mediaRecorder = new MediaRecorder(stream);
+                console.log("MediaRecorder created", mediaRecorder);
+
+                mediaRecorder.ondataavailable = event => {
+                    console.log("Data available:", event.data);
+                    if (event.data.size > 0) {
+                        audioChunks.push(event.data);
+                    } else {
+                        console.warn("No audio data received");
+                    }
+                };
+
+                mediaRecorder.onstop = async () => {
+                    console.log("Recording stopped");
+
+                    const audioBlob = new Blob(audioChunks, { type: 'audio/wav' });
+
+                    // ✅ Get filename from input box
+                    // let fileName = document.getElementById("filename").value.trim();
+                    // if (!fileName) {
+                    //     fileName = `recording_${username}_${roomId}_${Date.now()}.wav`; // Default name
+                    // } else {
+                    //     fileName += ".wav"; // Ensure .wav extension
+                    // }
+                    let fileName = `recording_${username}_${roomId}_${Date.now()}.wav`;
+
+                    console.log("Saving file as:", fileName);
+
+                    const formData = new FormData();
+                    formData.append("audio", audioBlob, fileName);
+                    formData.append("username", username);
+                    formData.append("roomId", roomId);
+
+                    // ✅ Upload to backend
+                    const response = await fetch("http://localhost:3000/upload", {
+                        method: "POST",
+                        body: formData
+                    });
+
+                    if (response.ok) {
+                        alert("Audio uploaded successfully!");
+                    } else {
+                        alert("Error uploading audio.");
+                    }
+                };
+
+                audioChunks = [];
+                mediaRecorder.start();
+                console.log("Recording started");
+
+                document.getElementById("start").disabled = true;
+                document.getElementById("stop").disabled = false;
+            } catch (error) {
+                console.error("Error starting recording:", error);
+                alert("Error: Unable to start recording. Check console for details.");
+            }
+        });
+
+        // ✅ Stop Recording
+        document.getElementById("stop").addEventListener("click", () => {
+            if (mediaRecorder && mediaRecorder.state !== "inactive") {
+                console.log("Stopping recording");
+                mediaRecorder.stop();
+                document.getElementById("start").disabled = false;
+                document.getElementById("stop").disabled = true;
+            } else {
+                console.warn("MediaRecorder is already stopped or not initialized");
+            }
+        });
+    </script>
+
+</body>
+
+</html>

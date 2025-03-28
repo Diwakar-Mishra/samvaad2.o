@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samvaad</title>
+    <!-- linking the font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ======================================= SWIPER-JS CSS LINKS  STARTS ========================= -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- linking the bootstrap css cdn link -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- linking our own css -->
+    <link rel="stylesheet" href="/styles/Home.css">
+</head>
+
+<body>
+    <!-- header section start -->
+    <header class="p-3 text-bg-dark">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-center justify-content-between">
+                <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                    <img src="/assets/logo.png" alt="samvaad_logo" class="logo">
+                </a>
+
+                <div class="text-end">
+                    <a href="/login" class="btn btn-outline-light me-2">Login</a>
+                    <a href="/signup" class="btn btn-warning">Sign-up</a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header section ends -->
+    <!-- hero section starts -->
+    <div class="container col-xxl-9 px-4 py-5">
+        <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+            <div class="col-10 col-sm-8 col-lg-6">
+                <img src="/assets/HeroSectionImage.jpg" class="d-block mx-lg-auto " alt="Bootstrap Themes" width="420"
+                    height="500" loading="lazy">
+            </div>
+            <div class="col-lg-6">
+                <h2 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Samvaad : </h2>
+                <h6 class="display-6 fw-bold text-body-emphasis lh-1 mb-3"><span id="typed-text"
+                        class="text-primary"></span>
+                </h6>
+                <p class="lead">Step into the world of structured debates and group discussions where your voice
+                    matters. Our AI-powered platform ensures fair evaluation, real-time feedback, and seamless
+                    participation. Whether you're hosting a debate or joining one, experience a dynamic, insightful, and
+                    engaging discussion like never before.</p>
+            </div>
+        </div>
+    </div>
+    <!-- hero section ends -->
+    <!-- page 3 starts ... create or join card options
+    <div class="container px-4 py-5" id="featured-3">
+        <h2 class="pb-2 border-bottom">Columns with icons</h2>
+        <div class="row g-4 py-5 row-cols-1 row-cols-lg-2 justify-content-center features-row">
+            <div class="feature col bg-primary feature-boxes" onclick="">
+            </div>
+            <div class="feature col bg-primary feature-boxes" onclick="">
+            </div>
+        </div>
+    </div> -->
+
+    <!--  page 3 ends ... create or join card options-->
+    <!-- page 4 starts ... key benefits waala section -->
+    <div class="container px-4 py-5">
+        <h2 class="pb-2 border-bottom">Our Key Features </h2>
+
+        <div class="row row-cols-1 row-cols-md-2 align-items-md-center g-5 py-5">
+            <div class="col d-flex flex-column align-items-start gap-2">
+                <h2 class="fw-bold text-body-emphasis">AI-Powered Debate & Discussion Analysis</h2>
+                <p class="text-body-secondary">Our platform delivers real-time AI insights, scoring speech clarity,
+                    relevance, and engagement. With automated transcription and unbiased evaluation, it provides instant
+                    feedback and detailed performance reports, enhancing discussions in competitions, academics, and
+                    corporate settings.</p>
+            </div>
+
+            <div class="col">
+                <div class="row row-cols-1 row-cols-sm-2 g-4">
+                    <div class="col d-flex flex-column gap-2">
+                        <div
+                            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                        </div>
+                        <div>
+                            <img src="/assets/features-ai.png" class="key-features-images">
+                        </div>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">AI-Driven Speech & Content Analysis
+                        </h4>
+                        <p class="text-body-secondary">✔ AI listens, transcribes, and evaluates debates in real time
+                            <br>
+                            ✔ Checks clarity, relevance, engagement, and logical flow
+                        </p>
+                    </div>
+
+                    <div class="col d-flex flex-column gap-2">
+                        <!-- <div
+                            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#gear-fill"></use>
+                            </svg>
+                        </div> -->
+                        <div>
+                            <img src="/assets/feataures-unbiased.webp" class="key-features-images">
+                        </div>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">Unbiased &
+                            Automated Scoring
+                        </h4>
+                        <p class="text-body-secondary">✔ AI gives unbiased scores based on data, reducing human errors.
+                            ✔ Judges can review and adjust scores if needed.
+                        </p>
+                    </div>
+
+                    <div class="col d-flex flex-column gap-2">
+                        <!-- <div
+                            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#speedometer"></use>
+                            </svg>
+                        </div> -->
+                        <div>
+                            <img src="/assets/features-report.png" class="key-features-images">
+                        </div>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">Detailed
+                            Performance Reports
+                        </h4>
+                        <p class="text-body-secondary">✔ Provides feedback on strengths and areas for improvement. <br>
+                            ✔ Tracks engagement and contribution levels.
+                        </p>
+                    </div>
+
+                    <div class="col d-flex flex-column gap-2">
+                        <!-- <div
+                            class="feature-icon-small d-inline-flex align-items-center justify-content-center text-bg-primary bg-gradient fs-4 rounded-3">
+                            <svg class="bi" width="1em" height="1em">
+                                <use xlink:href="#table"></use>
+                            </svg>
+                        </div> -->
+                        <div>
+                            <img src="/assets/features-scalable.jpg" class="key-features-images">
+                        </div>
+                        <h4 class="fw-semibold mb-0 text-body-emphasis">Easy & Scalable Platform
+                        </h4>
+                        <p class="text-body-secondary">✔ Works on both web and mobile for easy access. <br>
+                            ✔ Secure cloud storage for managing multiple debates smoothly
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- page 4 ends ... key benefits waala section -->
+    <!-- page 5 testimonial section starts -->
+    <!-- Testimonial Section -->
+    <section class="main">
+        <div class="container">
+            <div class="row flex-lg-row align-items-center g-5 py-5">
+                <!-- ============ text section start ==================== -->
+                <div class="col-lg-6">
+                    <h2 class="display-6 fw-bold lh-1 mb-3">
+                        See how we've helped our clients succeed
+                    </h2>
+                    <h5 class="mb-4">More than 1500+ agencies using Samvaad</h5>
+                    <div class="testimonial-wrapper">
+                        <div class="swiper mySwiper" id="mySwiper2">
+                            <div class="swiper-wrapper mb-5">
+                                <div class="swiper-slide">
+                                    <div class="last-animated-card">
+                                        <!-- stars section -->
+                                        <!-- <div>
+                                            <img src="./assets/stars.svg" alt="" id="stars-image" />
+                                        </div> -->
+                                        <!-- para section -->
+                                        <div>
+                                            <p id="testimonial-para">
+                                                Samvaad revolutionizes debate analysis with AI, making discussions more
+                                                structured and insightful.
+                                            </p>
+                                        </div>
+                                        <!-- photo and name section -->
+                                        <div id="testimonial-image-name">
+                                            <img src="/assets/person1.jpg" alt="" id="testimonial-image" />
+                                            <span id="testimonial-para">By Krati Mishra</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="last-animated-card">
+                                        <!-- stars section -->
+                                        <!-- <div>
+                                            <img src="./assets/stars.svg" alt="" id="stars-image" />
+                                        </div> -->
+                                        <!-- para section -->
+                                        <div>
+                                            <p id="testimonial-para">
+                                                A game-changer for students! It provides real-time feedback and enhances
+                                                communication skills
+                                            </p>
+                                        </div>
+                                        <!-- photo and name section -->
+                                        <div id="testimonial-image-name">
+                                            <img src="/assets/person2.jpg" alt="" id="testimonial-image" />
+                                            <span id="testimonial-para">By Khushi Bansal</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="last-animated-card">
+                                        <!-- stars section -->
+                                        <!-- <div>
+                                            <img src="./assets/stars.svg" alt="" id="stars-image" />
+                                        </div> -->
+                                        <!-- para section -->
+                                        <div>
+                                            <p id="testimonial-para">
+                                                Seamless, intelligent, and efficient – Samvaad ensures no discussion is
+                                                ever delayed again!
+                                            </p>
+                                        </div>
+                                        <!-- photo and name section -->
+                                        <div id="testimonial-image-name">
+                                            <img src="/assets/person3.jpg" alt="" id="testimonial-image" />
+                                            <span id="testimonial-para">By Muskan</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- text section ends  -->
+                <!-- image section starts -->
+                <div class="col-10 col-sm-10 col-lg-6 mx-auto banner-image-div">
+                    <img src="/assets/testimonial theme.jpg" class="d-block  banner-image" alt="Bootstrap Themes"
+                        width="400" height="500" loading="lazy" />
+                </div>
+                <!-- image section ends  -->
+            </div>
+        </div>
+    </section>
+    <!-- page 5 testimonial section ends -->
+    <!-- ========== footer section starts ============= -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <a href="/" class="mb-3 me-2 mb-md-0 text-body-secondary text-decoration-none lh-1">
+                    <svg class="bi" width="30" height="24">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2024 Company, Inc</span>
+            </div>
+
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="#">
+                        <i class="fa-brands fa-instagram footer-icon"></i>
+                    </a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li class="ms-3"><a class="text-body-secondary" href="#"><i class="fa-brands fa-facebook"></i></a></li>
+            </ul>
+        </footer>
+    </div>
+    <!-- ========== footer section ends ============= -->
+    <!-- swiper js link start -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- swiper js link end -->
+    <!-- typed.js start -->
+    <!-- Typed.js ka CDN link include karna (Ye external library hai) -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- typed.js end -->
+    <!-- pasting the bootstrap script link -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <!-- adding our own script file -->
+    <script src="/scripts/Home.js"></script>
+
+</html>
+</body>
+
+</html>
