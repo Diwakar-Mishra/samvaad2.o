@@ -1,0 +1,42 @@
+body {
+    height: 100vh;
+}
+
+.logo {
+    height: 65px;
+    width: 300px;
+    object-fit: cover;
+}
+
+
+@media (max-width: 576px) {
+    header {
+        width: 100%;
+        padding: 0px;
+    }
+
+    .header-container {
+        width: 100%;
+        padding: 0px;
+        margin: 0px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo {
+        width: 150px;
+    }
+
+    .header-buttons {
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/*  styling the cards */
+#main-dashboard-content {
+    display: flex;
+    justify-content: center;
+    /* gap: 20px; */
+    align-items: center;
+}
