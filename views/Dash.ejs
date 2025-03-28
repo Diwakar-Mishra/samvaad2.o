@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Theme Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            background-color: #121212;
+            color: #ffffff;
+        }
+
+        .container {
+            max-width: 600px;
+            margin-top: 100px;
+        }
+
+        .card {
+            background-color: #1e1e1e;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #6200ea;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="card p-4">
+            <h3 class="text-center text-white ">Upload a .txt File</h3>
+            <input type="text" id="topicName" class="form-control mt-3" placeholder="Enter Topic Name">
+            <input type="file" id="fileInput" class="form-control mt-3">
+            <button class="btn btn-primary mt-3 w-100" onclick="uploadFile()">Upload</button>
+            <div id="response" class="mt-3 text-center"></div>
+        </div>
+    </div>
+
+    <script>
+        function uploadFile() {
+            let file = document.getElementById('fileInput').files[0];
+            let topic = document.getElementById('topicName').value;
+
+            if (!file || !topic) {
+                alert("Please enter a topic name and select a file");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("file", file);
+            formData.append("topic", topic);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById("response").innerHTML = `<strong>Received Code: </strong> ${data.code}`;
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>
